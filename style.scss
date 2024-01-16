@@ -1,0 +1,180 @@
+$bg: rgb(25, 25, 25);
+$col: rgb(169, 194, 223);
+
+body {
+    user-select: none;
+    overflow-x: hidden;
+    background: $bg;
+    color: $col;
+    .top-bar {
+        width: 100vw;
+        height: 7rem;
+
+        box-shadow: 0 0 1rem darken($bg, 2);
+        img {
+            width: auto;
+            height: 100%;
+        }
+    }
+    .content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-top: 2rem;
+        overflow-y: scroll;
+        max-height: 90vh;
+        &::-webkit-scrollbar {
+            width: 1rem;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: $bg;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: lighten($bg, 10);
+            border-radius: .5rem;
+        }
+        .item-box {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            padding: 1rem;
+            margin: .5rem 1rem;
+            border-radius: 1rem;
+
+            cursor: pointer;
+            background-color: lighten($bg, 5);
+            transition: .2s ease-in-out;
+            box-shadow: 0 0 .5rem darken($bg, 2);
+            &:hover {
+                background-color: lighten($bg, 10);
+                box-shadow: 0 0 2rem darken($bg, 2);
+            }
+            .widget-bar {
+                display: block !important;
+            }
+            .icon {
+                width: 3rem;
+                height: 3rem;
+                margin-right: 1rem;
+
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .title {
+                font-size: 120%;
+                font-weight: 600;
+                max-width: 12rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .url {
+                font-size: 80%;
+                color: darken($col, 20);
+                max-width: 12rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .visits {
+                margin: .5rem;
+                margin-left: 1rem;
+                margin-right: 2rem;
+                
+                &::after {
+                    position: absolute;
+                    transform: translate(1rem, -90%) scale(100%, 150%);
+
+                    content: '';
+                    display: block;
+                    width: 2rem;
+                    height: 2rem;
+
+                    background-image: url(assets/eye_open.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    filter: brightness(97%) sepia(100) saturate(45) hue-rotate(166deg);
+                }
+            }
+        }
+    }
+    .widget-bar {
+        display: none !important;
+        position: absolute;
+        top: -1.5rem;
+        right: 0;
+
+        border-radius: 1rem;
+        padding: .5rem;        
+        background-color: darken($bg, 5);
+        transform: scale(.7);
+        img {
+            width: 2.5rem;
+            height: 2.5rem;
+            padding: .5rem;
+            &.delete {
+                filter: brightness(10%) sepia(100) saturate(45) hue-rotate(0deg);
+                &:hover {
+                    filter: brightness(10%) sepia(100) saturate(95) hue-rotate(0deg);
+                }
+            }
+        }
+    }
+    .edit-dialog {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0, 0, 0, 0.25);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .center-box {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            background-color: darken($bg, 4);
+            padding: 2rem;
+            border-radius: 2rem;
+
+            .title {
+                font-weight: 600;
+                font-size: 150%;
+            }
+            input, button {
+                text-align: center;
+                width: 100%;
+                background-color: $bg;
+                outline: none;
+                border: none;
+                color: unset;
+                
+                padding: .5rem;
+                margin: 1rem;
+                font-size: 1.5rem;
+                font-weight: 400;
+                border-bottom: 1px solid rgb(255, 255, 255, .5);
+                box-shadow: 0 0 2rem darken($bg, 2);
+                transition: .2s ease-in-out;
+                &:hover {
+                    background-color: darken($bg, 2.5);
+                    box-shadow: 0 0 4rem darken($bg, 2);
+                    &.cancel {
+                        border-color: rgb(202, 51, 51);
+                        color: rgb(202, 51, 51);
+                    }
+                }
+            }
+            .btns {
+                width: 100%;
+                button {
+                    margin: 0;
+                    padding: .5rem;
+                }
+            }
+        }
+    }
+}

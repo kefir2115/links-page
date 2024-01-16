@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet" href="style.min.css">
+    </head>
+    <body class="container-fluid">
+        <div class="row top-bar justify-content-center align-items-center">
+            <img src="assets/logo.png">
+        </div>
+        <div class="content">
+            <div class="item-box add">
+                <div class="info">
+                    <div class="title">+ New Shortcut</div>
+                    <div class="url">Or Ctrl+A</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="widget-bar d-flex">
+            <img src="assets/edit.png" class="edit">
+            <img src="assets/trash_can.png" class="delete">
+        </div>
+        <div class="edit-dialog" hidden>
+            <div class="center-box">
+                <div class="title">Shortcut</div>
+                <input type="text" class="url">
+                <div class="btns d-flex">
+                    <button class="cancel">Cancel</button>
+                    <button class="update">Update & Set</button>
+                </div>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
